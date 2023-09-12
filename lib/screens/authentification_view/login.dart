@@ -1,3 +1,5 @@
+import 'package:bethanie/screens/authentification_view/inscription.dart';
+import 'package:bethanie/screens/authentification_view/motdepasse.dart';
 import 'package:bethanie/utils/size_config.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_iconly/flutter_iconly.dart';
@@ -56,7 +58,7 @@ class _ScreenConnexionState extends State<ScreenConnexion> {
                         ),
                         decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(5),
-                            boxShadow: [
+                            boxShadow: const [
                               BoxShadow(
                                 color: Colors.grey,
                                 offset: Offset(0, 5),
@@ -127,7 +129,14 @@ class _ScreenConnexionState extends State<ScreenConnexion> {
                         mainAxisAlignment: MainAxisAlignment.end,
                         children: [
                           TextButton(
-                            onPressed: () {},
+                            onPressed: () {
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) =>
+                                        ForgotPasswordScreen(),
+                                  ));
+                            },
                             child: Text(
                               'Mot de passe oublié ?',
                               style: GoogleFonts.poppins(color: Colors.black),
@@ -163,7 +172,7 @@ class _ScreenConnexionState extends State<ScreenConnexion> {
                       SizedBox(
                         height: getProportionateScreenWidth(20),
                       ),
-                      ////////////////////or
+                      ////////////////////ou autre moyen
                       Text(
                         '-- Ou avec --',
                         style: GoogleFonts.poppins(
@@ -183,7 +192,7 @@ class _ScreenConnexionState extends State<ScreenConnexion> {
                           ////////////////Google IconButton
                           IconButton(
                             style: IconButton.styleFrom(
-                                shape: RoundedRectangleBorder()),
+                                shape: const RoundedRectangleBorder()),
                             onPressed: () {},
                             icon: Container(
                               height: getProportionateScreenWidth(60),
@@ -210,7 +219,7 @@ class _ScreenConnexionState extends State<ScreenConnexion> {
                           ////////////////Apple IconButton
                           IconButton(
                             style: IconButton.styleFrom(
-                                shape: RoundedRectangleBorder()),
+                                shape: const RoundedRectangleBorder()),
                             onPressed: () {},
                             icon: Container(
                               height: getProportionateScreenWidth(60),
@@ -237,7 +246,7 @@ class _ScreenConnexionState extends State<ScreenConnexion> {
                           ////////////////Facebook IconButton
                           IconButton(
                             style: IconButton.styleFrom(
-                                shape: RoundedRectangleBorder()),
+                                shape: const RoundedRectangleBorder()),
                             onPressed: () {},
                             icon: Container(
                               height: getProportionateScreenWidth(60),
@@ -267,7 +276,7 @@ class _ScreenConnexionState extends State<ScreenConnexion> {
                       SizedBox(
                         height: getProportionateScreenWidth(20),
                       ),
-                      ////////////////////
+                      ////////////////////vous navez pas de compte
                       Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
@@ -276,7 +285,15 @@ class _ScreenConnexionState extends State<ScreenConnexion> {
                             style: GoogleFonts.poppins(color: Colors.black),
                           ),
                           TextButton(
-                            onPressed: () {},
+                            onPressed: () {
+                              Navigator.pushReplacement(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) =>
+                                      const ScreenInscription(),
+                                ),
+                              );
+                            },
                             child: Text(
                               'S\'inscrire',
                               style: GoogleFonts.poppins(
